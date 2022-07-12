@@ -10,8 +10,8 @@ var control = new (function () {
   this.rotationSpeed = 0.02;
 })();
 
-let gui = new dat.GUI();
-gui.add(control, "rotationSpeed", 0, 280, 0.01);
+/*let gui = new dat.GUI();
+gui.add(control, "rotationSpeed", 0, 280, 0.01);*/
 const textureLoader = new THREE.TextureLoader();
 const normalTexture = textureLoader.load("height2.jpg");
 
@@ -56,7 +56,7 @@ Scene.background = spaceTexture;
 const moonTexture = new THREE.TextureLoader().load("moon.jpg");
 
 let moon = new THREE.Mesh(
-  new THREE.SphereGeometry(8, 64, 32),
+  new THREE.SphereGeometry(7, 64, 32),
   new THREE.MeshStandardMaterial({
     map: moonTexture,
     normalMap: normalTexture,
@@ -67,7 +67,7 @@ let moon = new THREE.Mesh(
 );
 
 let moonNew = new THREE.Mesh(
-  new THREE.SphereGeometry(8, 64, 32),
+  new THREE.SphereGeometry(7, 64, 32),
   new THREE.MeshStandardMaterial({
     map: moonTexture,
     normalMap: normalTexture,
@@ -85,7 +85,7 @@ moonNew.position.x = -40;
 moonNew.position.z = -5;
 
 const stats = Stats();
-document.body.appendChild(stats.dom);
+//document.body.appendChild(stats.dom);
 
 //const controls = new OrbitControls(camera, renderer.domElement);
 
@@ -94,7 +94,7 @@ function rotate() {
 
   //controls.update();
   renderer.render(Scene, camera);
-  stats.update();
+  //stats.update();
 }
 
 rotate();
