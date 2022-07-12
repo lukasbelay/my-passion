@@ -1,5 +1,4 @@
 import "./style.css";
-
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import Stats from "three/examples/jsm/libs/stats.module";
@@ -26,6 +25,7 @@ const camera = new THREE.PerspectiveCamera(
 
 const renderer = new THREE.WebGLRenderer({
   canvas: document.querySelector("#bg"),
+  antialias: "true",
 });
 
 renderer.setPixelRatio(window.devicePixelRatio);
@@ -66,10 +66,23 @@ let moon = new THREE.Mesh(
   })
 );
 
-Scene.add(moon);
+let moonNew = new THREE.Mesh(
+  new THREE.SphereGeometry(8, 64, 32),
+  new THREE.MeshStandardMaterial({
+    map: moonTexture,
+    normalMap: normalTexture,
+    /*metalness: 0.2,
+    roughness: 0.9,
+    */
+  })
+);
 
-moon.position.x = 20;
+Scene.add(moon, moonNew);
+
+moon.position.x = 33;
 moon.position.z = -5;
+moonNew.position.x = -40;
+moonNew.position.z = -5;
 
 const stats = Stats();
 document.body.appendChild(stats.dom);
@@ -93,6 +106,7 @@ function animate() {
   //torus.rotation.y += 6;
   //torus.rotation.z += 6;
   moon.rotation.y += control.rotationSpeed;
+  moonNew.rotation.y += control.rotationSpeed;
   renderer.render(Scene, camera);
 }
 

@@ -5,7 +5,7 @@ canvas {
 }
 #sus {
   position: absolute;
-  margin: 0px auto;
+  margin: 30px auto;
   top: 5%;
   left: 50%;
   transform: translate(-50%, -50%);
