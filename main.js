@@ -79,9 +79,9 @@ let moonNew = new THREE.Mesh(
 
 Scene.add(moon, moonNew);
 
-moon.position.x = 33;
+moon.position.x = 27;
 moon.position.z = -5;
-moonNew.position.x = -40;
+moonNew.position.x = -30;
 moonNew.position.z = -5;
 
 const stats = Stats();
@@ -98,6 +98,12 @@ function rotate() {
 }
 
 rotate();
+function onWindowResize() {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+}
+window.addEventListener("resize", () => onWindowResize(), false);
 
 function animate() {
   requestAnimationFrame(animate);

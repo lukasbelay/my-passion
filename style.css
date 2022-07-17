@@ -13,14 +13,25 @@ canvas {
   left: 50%;
   transform: translate(-50%, -50%);
   height: 0px;
-  width: 100%;
+  width: 80%;
 }
 #header {
   top: 5%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   /*background-color: brown;*/
+}
+
+#bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: blue;
+  position: absolute;
+  width: 10%;
+  left: -15%;
 }
 
 #test {
